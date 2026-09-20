@@ -33,12 +33,12 @@ After you get into the IOT dashboards, you can scroll down to the Zeek logs ot t
 
 <img width="779" height="386" alt="Pasted image 20260917221605" src="https://github.com/user-attachments/assets/95a21038-493f-40d3-bba4-5cbbaabece7b" />
 
-	Click into FTP. This will take you to Arkime. Filter based on your time period you're looking at, and you'll get a few data transmissions using FTP. Click through them, and look at their attributes.
+Click into FTP. This will take you to Arkime. Filter based on your time period you're looking at, and you'll get a few data transmissions using FTP. Click through them, and look at their attributes.
 
 <img width="1682" height="607" alt="Pasted image 20260917221720" src="https://github.com/user-attachments/assets/7f6a2fed-d4cb-47f5-b6ba-f51f4acc856a" />
 
 	
-	You'll want to specifically click into the log type of the application (FTP) you're wanting to work with. Here, you'll find the cleartext password at the bottom!
+You'll want to specifically click into the log type of the application (FTP) you're wanting to work with. Here, you'll find the cleartext password at the bottom!
 	
 <img width="1009" height="792" alt="Pasted image 20260917221833" src="https://github.com/user-attachments/assets/0216f278-768f-4036-88c2-83dd7b94b47c" />
 
@@ -47,7 +47,7 @@ After you get into the IOT dashboards, you can scroll down to the Zeek logs ot t
 <img width="1201" height="728" alt="Pasted image 20260917222135" src="https://github.com/user-attachments/assets/5e8d40f5-5325-4d36-b6fb-a3e7bd26dc29" />
 
 	
-	If you want to download a file, simply click the `zeek.files.extracted_uri` link for the file you want, and that will start the download process. These files will usually download as .zip files, but you can reliably see the contents with 7-zip. Here's an example of the FTP file we saw that you can pull!
+If you want to download a file, simply click the `zeek.files.extracted_uri` link for the file you want, and that will start the download process. These files will usually download as .zip files, but you can reliably see the contents with 7-zip. Here's an example of the FTP file we saw that you can pull!
 	
 <img width="896" height="792" alt="Pasted image 20260917222526" src="https://github.com/user-attachments/assets/59fd09d4-3bb9-4df6-8560-edbbbb0ce481" />
 
@@ -57,11 +57,11 @@ After you get into the IOT dashboards, you can scroll down to the Zeek logs ot t
 
 <img width="1883" height="911" alt="Pasted image 20260917223342" src="https://github.com/user-attachments/assets/798059b6-242d-4396-b456-7ee0e5b275af" />
 
-	You'll notice that the opcua_binary_status_code is listed in the `OPCUA Binary - Log Count`. If we hover our mouse over the option, we'll get an option to filter just based off of that. Now, we'll only get logs with that attribute. There are still 29 remaining logs, so let's see if we can find the one that says 'Create Monitored Items.' If we scroll down, we'll see the rest of the logs: 
+You'll notice that the opcua_binary_status_code is listed in the `OPCUA Binary - Log Count`. If we hover our mouse over the option, we'll get an option to filter just based off of that. Now, we'll only get logs with that attribute. There are still 29 remaining logs, so let's see if we can find the one that says 'Create Monitored Items.' If we scroll down, we'll see the rest of the logs: 
 
 <img width="2475" height="794" alt="Pasted image 20260917223644" src="https://github.com/user-attachments/assets/4a56261c-6ffd-4f74-b05b-e255a0d9a239" />
 	
-	And, you'll notice that the CreateMonitoredItems action is listed near the very bottom. Clicking into the log further reveals all of its attributes, including the `zeek.opcua_binary_status_code_detail.status_code`:
+And, you'll notice that the CreateMonitoredItems action is listed near the very bottom. Clicking into the log further reveals all of its attributes, including the `zeek.opcua_binary_status_code_detail.status_code`:
 
 <img width="640" height="598" alt="Pasted image 20260917223836" src="https://github.com/user-attachments/assets/fdf72d58-4827-4ac7-9b3a-df0fbb0f8d40" />
 
