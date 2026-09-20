@@ -5,7 +5,7 @@ You're given a chrome extension where the SOC team believes the extension is exf
 Fortunately for us, crx extensions are simply re-packaged zip files. 7-zip can extract the files from the extension and assess them.
 
 When we open the .crx with 7-zip. When we do, we get the following:
-![[Pasted image 20260917133646.png]]
+<img width="473" height="121" alt="image" src="https://github.com/user-attachments/assets/14bccdbb-4c22-4d79-a098-bd48c0297327" />
 
 The manifest is more or less, a description of the extension. We're interested in background.js to see what it says. Here are the contents when opened in VS Code:
 ![[Pasted image 20260917133952.png]]
