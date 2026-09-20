@@ -3,25 +3,32 @@ Summary: You're given an elf file and the ability to netcat into a remote machin
 Initially, you're given two things: A service that runs on a remote port, and a file that you can use to analyze the service. 
 
 Let's start by analyzing the port. We might run `nmap [IP] -[PORT] -sV` to get an idea of what the device is running. In this case, nmap can't discern exactly what it is. So, next we'll try to run netcat, and we get a proper return:
-![[Pasted image 20260917234907.png]]
+
+<img width="574" height="115" alt="Pasted image 20260917234907" src="https://github.com/user-attachments/assets/da61eda2-3328-4fe8-ab63-60473ab24372" />
 
 From here, it didn't really matter what a little bit of 'manual fuzzing' got us--the return was always the same. Not to mention, we had nothing else to go off of at this point. So, let's look at the other piece we have--the file that runs the service. Take the file, and put it into Ghidra for some static code analysis!
 
 Once in Ghidra, you'll be in an x86 Assembly/C environment. You're not expected to know how all of it works--just the main functions. It also helps if you know how to leverage the tools that make it easiest for a human to enumerate.
 
 Once you're in, it'll look scary:
-![[Pasted image 20260917234457.png]]
+
+<img width="2266" height="936" alt="Pasted image 20260917234457" src="https://github.com/user-attachments/assets/ca964d94-0c03-4d37-b042-cfcc5a193fd9" />
+
 But it's okay, we're gonna get through it.
 
+
 Start by going to Search > For Strings. You might get a list of human-readable content that you can start interpreting:
--![[Pasted image 20260917234618.png]]
+
+<img width="900" height="399" alt="Pasted image 20260917234618" src="https://github.com/user-attachments/assets/79761288-17cc-4308-bc40-7d21a64f4139" />
+
 
 This should put you into a function of some sort. Once you're there, it really helps to look at the C interpretation of the x86 assembly. It won't necessarily make it easy to interpret, but it's much better than x86
 
-![[Pasted image 20260917235323.png]]
+<img width="1569" height="675" alt="Pasted image 20260917235323" src="https://github.com/user-attachments/assets/dc322ae3-e0f6-4b06-b369-eb7a3fca65c2" />
 
 You might notice that we found some strings in here that remind us of our return from earlier. Great! Let's see what else we can find in here. Search for strings again, and you might stumble across this in the C Decompiler:
-![[Pasted image 20260917235245.png]]
+
+<img width="393" height="303" alt="Pasted image 20260917235245" src="https://github.com/user-attachments/assets/6490dc46-f0ac-4f42-9109-7aedf46b9359" />
 
 Interesting--looks like there's a debug mode on here! Let's see if we can take advantage of it. 
 
