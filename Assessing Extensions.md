@@ -22,6 +22,6 @@ Now, there are several ways to exfiltrate data--in many cases, it comes down to 
 An example of this exfil is as follows: /bh8AB1MAWlpaWkgFXwgUBAIBX1cEVQEHBR9UXgddAQEZV!
 wcKQwAUQUdEA0pUBExHGR5KCF86SlBGRRQPUxFRWlsdEhRFABRTVF0VAxxVFEVSaTc/A1VoDGdzIgFnME9YYXteUR0cVWg=
 
-Notice how it ends with an = sign. This and other URLs in the challenge often ended with this. This implies that the message is Base64-encoded. In addition, there were some iterations of XOR. [AGENT: EXPLAIN WHAT XOR IS]
+Notice how it ends with an = sign. This and other URLs in the challenge often ended with this. This implies that the message is Base64-encoded. In this case, there were some iterations of XOR (A transformation equation used in encryption) that, once the key is derived, shows the URL contents.
 
 
