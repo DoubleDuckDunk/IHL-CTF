@@ -4,12 +4,13 @@ A company is using 46 moveable lights, but each is spinning wildly and uncontrol
 
 Start
 Initially, look at the packet captures and assess what the protocol looks like. Opening up any packet on the packet capture looks like this:
-![[Pasted image 20260917120450.png]]
-![[Pasted image 20260917092415.png|697]]
+
+<img width="1847" height="807" alt="Pasted image 20260917120450" src="https://github.com/user-attachments/assets/672327c5-955d-42ed-8dae-32f73b58c94c" />
+
 
 This gives you the protocol, and what the protocol looks like on the wire. As you can see, there are many different values. If you continue looking at different packets, the values of the application (DMX Channels) continue to be random. Now, look at the attached manufacturer's specifiacations: 
 
-![[Pasted image 20260917092642.png]]
+<img width="661" height="856" alt="Pasted image 20260917092642" src="https://github.com/user-attachments/assets/5b565209-b4ee-4892-8959-7ffa1593d9bc" />
 
 Looking at the specifications, there are 11 values, with the 6th value being red. After 11 values, the next value is destined for the next device. 
 
@@ -59,7 +60,9 @@ All other lights:
 | 10% zoom                    | 1c        |
 |                             |           |
 
-Once putting this into an LLM, we can produce a Python program with these values to send to 192.168.100.5:6454 via UDP. Keep in mind that we need our packets to look like what we've already seen--as in, we need both a header and footer. In Wireshark, if we highlight the application, we get all the hex values for the entire application: ![[Pasted image 20260917102039.png]]
+Once putting this into an LLM, we can produce a Python program with these values to send to 192.168.100.5:6454 via UDP. Keep in mind that we need our packets to look like what we've already seen--as in, we need both a header and footer. In Wireshark, if we highlight the application, we get all the hex values for the entire application: 
+
+<img width="1828" height="558" alt="Pasted image 20260917102039" src="https://github.com/user-attachments/assets/b6079332-c01a-4eae-ab81-77f5521cd42f" />
 
 If we highlight the actual bytes, we get the rest of the payload. The difference between them is how we can apply the header as hex values in Python. The footer is simply padding to finish out the last hex value (0x1f1): 00 00 00 00 00 00
 
